@@ -11,7 +11,7 @@
     <p>Hello</p>
     <script>
       async function getAllCommitStatuses(owner, repo, ref, accessToken) {
-        const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits/${ref}`;
+        const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
 
         try {
           const response = await axios.get(apiUrl, {
@@ -30,11 +30,15 @@
       const owner = 'mihir952';
       const repo = 'Assignment';
       const ref = 'master'; // Branch or commit SHA
-      const accessToken = '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';
+      const accessToken = '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';
 
       getAllCommitStatuses(owner, repo, ref, accessToken)
         .then((commitStatuses) => {
-          console.log(commitStatuses.commit.message);
+          console.log(commitStatuses);
+          commitStatuses.forEach(commit =>{
+            console.log(commit.commit.message)
+
+          });
         })
         
           .catch((error) => {

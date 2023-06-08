@@ -4,11 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Commit Statuses</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <p>Hello</p>
+    <div class="container">
+      <br/>
+      <h1>Repo Commit Status</h1>
+      <br/>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Author</th>
+            <th>Commit Message</th>
+            <th>Date and Time</th>
+          </tr>
+        </thead>
+        <tbody id="commitTableBody"></tbody>
+      </table>
+    </div>
+
     <script>
       async function getAllCommitStatuses(owner, repo, ref, accessToken) {
         const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
@@ -26,26 +45,43 @@
         }
       }
 
-      // Usage example
       const owner = 'mihir952';
       const repo = 'Assignment';
-      const ref = 'master'; // Branch or commit SHA
-      const accessToken = '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';
+      const ref = 'master';
+      const accessToken = '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';
+
+      const commitTableBody = document.getElementById('commitTableBody');
 
       getAllCommitStatuses(owner, repo, ref, accessToken)
         .then((commitStatuses) => {
-          console.log(commitStatuses);
-          commitStatuses.forEach(commit =>{
-            console.log(commit.commit.message)
+          commitStatuses.forEach((status) => {
+            console.log(status.commit)
+            const author = status.commit.author.name;
+            const message = status.commit.message;
+            const time=status.commit.author.date;
 
+            const row = document.createElement('tr');
+            const authorCell = document.createElement('td');
+            const messageCell = document.createElement('td');
+            const dateCell = document.createElement('td');
+
+
+            authorCell.textContent = author;
+            messageCell.textContent = message;
+            dateCell.textContent = time;
+
+
+            row.appendChild(authorCell);
+            row.appendChild(messageCell);
+            row.appendChild(dateCell);
+
+            commitTableBody.appendChild(row);
           });
         })
-        
-          .catch((error) => {
-  console.error('Error:', error.message);
-  console.error('Response:', error.response.data);
-});
-     
+        .catch((error) => {
+          console.error('Error:', error.message);
+          console.error('Response:', error.response.data);
+        });
     </script>
   </body>
 </html>

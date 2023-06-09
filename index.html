@@ -9,79 +9,34 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <style>
+      #TableBody td {
+        color: rgb(12, 12, 12);
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+      }
+      th{
+        text-align: center;
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
-      <br/>
+      <br />
       <h1>Repo Commit Status</h1>
-      <br/>
+      <br />
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Author</th>
             <th>Commit Message</th>
+            <th> Commited By Author</th>
             <th>Date and Time</th>
           </tr>
         </thead>
-        <tbody id="commitTableBody"></tbody>
+        <tbody id="TableBody"></tbody>
       </table>
     </div>
-
-    <script>
-      async function getAllCommitStatuses(owner, repo, ref, accessToken) {
-        const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
-
-        try {
-          const response = await axios.get(apiUrl, {
-            headers: {
-              Authorization: `Bearer ${accessToken}`
-            }
-          });
-
-          return response.data;
-        } catch (error) {
-          console.error(error);
-        }
-      }
-
-      const owner = 'mihir952';
-      const repo = 'Assignment';
-      const ref = 'master';
-      const accessToken = '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';
-
-      const commitTableBody = document.getElementById('commitTableBody');
-
-      getAllCommitStatuses(owner, repo, ref, accessToken)
-        .then((commitStatuses) => {
-          commitStatuses.forEach((status) => {
-            console.log(status.commit)
-            const author = status.commit.author.name;
-            const message = status.commit.message;
-            const time=status.commit.author.date;
-
-            const row = document.createElement('tr');
-            const authorCell = document.createElement('td');
-            const messageCell = document.createElement('td');
-            const dateCell = document.createElement('td');
-
-
-            authorCell.textContent = author;
-            messageCell.textContent = message;
-            dateCell.textContent = time;
-
-
-            row.appendChild(authorCell);
-            row.appendChild(messageCell);
-            row.appendChild(dateCell);
-
-            commitTableBody.appendChild(row);
-          });
-        })
-        .catch((error) => {
-          console.error('Error:', error.message);
-          console.error('Response:', error.response.data);
-        });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

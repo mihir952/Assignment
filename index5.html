@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee List</title>
+</head>
+<body>
+  <table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Project</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+  </table>
+
+  <script>
+   
+    const employees = [
+      {
+        name: "John Doe",
+        email: "johndoe@example.com",
+        department: "Marketing",
+        projects: [
+          {
+            name: "Project A",
+            duration: "13 months"
+          },
+          {
+            name: "Project B",
+            duration: "6 months"
+          }
+        ]
+      },
+      {
+        name: "Jane Smith",
+        email: "janesmith@example.com",
+        department: "Sales",
+        projects: [
+          {
+            name: "Project C",
+            duration: "9 months"
+          }
+        ]
+      },
+      {
+        name: "Nikola Thomas",
+        email: "nikolathomas@example.com",
+        department: "Human Resources",
+        projects: []
+      },
+      {
+        name: "Michael Johnson",
+        email: "michaeljohnson@example.com",
+        department: "Engineering",
+        projects: [
+          {
+            name: "Project D",
+            duration: "5 months"
+          },
+          {
+            name: "Project E",
+            duration: "12 months"
+          },
+          {
+            name: "Project F",
+            duration: "1 month"
+          }
+        ]
+      },
+      {
+        name: "Emily Davis",
+        email: "emilydavis@example.com",
+        department: "Human Resources",
+        projects: []
+      },
+    ];
+
+    const tablebody=document.getElementById("tbody");
+    employees.forEach((employee)=>{
+        const row=document.createElement("tr");
+        const Name=document.createElement("td");
+        const Email=document.createElement("td");
+        const Department=document.createElement("td");
+        const Project=document.createElement("td");
+
+       var projectData = employee.projects.forEach(project=>{
+        // console.log(project)
+            if(project.lenth!=0){
+                return project;
+            }
+        })
+
+        Name.textContent=employee.name;
+        Email.textContent=employee.email;
+        Department.textContent=employee.department;
+        console.log(projectData);
+        if(projectData){
+            Project.textContent=projectData.name;
+        }
+
+        row.appendChild(Name);
+        row.appendChild(Email);
+        row.appendChild(Department);
+        row.appendChild(Project);
+
+        tablebody.appendChild(row);
+    });
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+employees = [
+    {
+      name: "John Doe",
+      email: "johndoe@example.com",
+      department: "Marketing",
+      projects: [
+        {
+          name: "Project A",
+          duration: "13 months"
+        },
+        {
+          name: "Project B",
+          duration: "6 months"
+        }
+      ]
+    },
+    {
+      name: "Jane Smith",
+      email: "janesmith@example.com",
+      department: "Sales",
+      projects: [
+        {
+          name: "Project C",
+          duration: "9 months"
+        }
+      ]
+    },
+    {
+      name: "Nikola thomas",
+      email: "nikolathomas@example.com",
+      department: "Human Resources",
+      projects: []
+    },
+    {
+      name: "Michael Johnson",
+      email: "michaeljohnson@example.com",
+      department: "Engineering",
+      projects: [
+        {
+          name: "Project D",
+          duration: "5 months"
+        },
+        {
+          name: "Project E",
+          duration: "12 months"
+        },
+        {
+          name: "Project F",
+          duration: "1 months"
+        }
+      ]
+    },
+    {
+      name: "Emily Davis",
+      email: "emilydavis@example.com",
+      department: "Human Resources",
+      projects: []
+    },
+  ];

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee List</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="employeeTableBody">
+    </tbody>
+  </table>
+
+  <script>
+    const employees = [
+      {
+        name: "John Doe",
+        email: "johndoe@example.com",
+        department: "Marketing",
+        projects: [
+          {
+            name: "Project A",
+            duration: "13 months"
+          },
+          {
+            name: "Project B",
+            duration: "6 months"
+          }
+        ]
+      },
+      {
+        name: "Jane Smith",
+        email: "janesmith@example.com",
+        department: "Sales",
+        projects: [
+          {
+            name: "Project C",
+            duration: "9 months"
+          }
+        ]
+      },
+      {
+        name: "Nikola Thomas",
+        email: "nikolathomas@example.com",
+        department: "Human Resources",
+        projects: []
+      },
+      {
+        name: "Michael Johnson",
+        email: "michaeljohnson@example.com",
+        department: "Engineering",
+        projects: [
+          {
+            name: "Project D",
+            duration: "5 months"
+          },
+          {
+            name: "Project E",
+            duration: "12 months"
+          },
+          {
+            name: "Project F",
+            duration: "1 month"
+          }
+        ]
+      },
+      {
+        name: "Emily Davis",
+        email: "emilydavis@example.com",
+        department: "Human Resources",
+        projects: []
+      },
+    ];
+
+    const tableBody = document.getElementById("employeeTableBody");
+
+    employees.forEach((employee) => {
+      const row = document.createElement("tr");
+      const nameCell = document.createElement("td");
+      const emailCell = document.createElement("td");
+
+      nameCell.textContent = employee.name;
+      emailCell.textContent = employee.email;
+
+      row.appendChild(nameCell);
+      row.appendChild(emailCell);
+
+      tableBody.appendChild(row);
+    });
+  </script>
+</body>
+</html>

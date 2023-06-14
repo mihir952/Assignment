@@ -17,7 +17,7 @@ async function getAllCommitStatuses(owner, repo, ref, accessToken) {
 const owner = "mihir952";
 const repo = "Assignment";
 const ref = "master";
-const accessToken = "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";
+const accessToken = "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";
 
 const commitTableBody = document.getElementById("TableBody");
 

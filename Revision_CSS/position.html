@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position</title>
+</head>
+<style>
+    li{
+        display: inline;
+        padding: 10px;
+    }
+header {
+    height: 60px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+
+
+}
+.container{
+    background-color: blue;
+    width: 52vw;
+    height: 80vh;
+    border: 3px solid yellowgreen;
+    position: relative;
+}
+.box{
+    width: 30px;
+    height: 20px;
+    background-color: rgb(61, 172, 6);
+    position: relative;
+    left: 950px;
+    bottom: 51px;
+}
+.box2{
+    width:200px;
+    height: 200px;
+    background-color: black;
+    /* position: absolute;
+    top: 5px; */
+
+
+    /* position: absolute;
+    top:35px */
+    /* position: fixed; */
+}
+
+
+/*Absolute Position*/
+/* here when box2 has positive absolute then it take the reference of parent tag here 
+which is html but when you make conatiner position is relative 
+then it become relative and now box2 will take reference as container 
+because here container wilbecome parent class wrt box2 */
+
+/*Relative Position */
+/* and there will be no effect on container by making position relative 
+because here we are not applying any top bottom left right changes */
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+           Eius ipsum alias asperiores laudantium magnam! Illum excepturi nemo maiores possimus asperiores?</p>
+            <div class="box">
+                Like
+            </div>
+             <div class="box2"></div>
+    </div>
+
+
+    <ul class="fruits">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Fruits</li>
+    </ul>
+</body>
+
+</html>

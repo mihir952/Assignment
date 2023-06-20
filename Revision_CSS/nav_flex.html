@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NavBar Using flex</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    header {
+      height: 10vh;
+      background-color: black;
+      color: white;
+      padding: 10px;
+    }
+    li {
+      list-style: none;
+      display: inline;
+      padding: 20px;
+    }
+    ul {
+      padding: 10px;
+    }
+    .left {
+      width: 500px;
+      height: 350px;
+      background-color: blueviolet;
+      /* float: left; */
+    }
+    .right {
+      width: 500px;
+      height: 350px;
+      background-color: rgb(144, 109, 177);
+      /* float: right; */
+    }
+  </style>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="left">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit et
+        incidunt nisi eaque! Dolorem expedita consequatur tempore a pariatur in?
+      </div>
+      <div class="right">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod error
+        magni, perferendis debitis dolores, quos at nemo optio fugiat corrupti
+        nulla esse eius dolor unde deserunt neque. Provident, itaque iusto!
+      </div>
+    </div>
+  </body>
+</html>
